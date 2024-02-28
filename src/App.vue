@@ -40,9 +40,7 @@ const pageShown = ref("about-us");
 
   <!-- Contenido de la app -->
   <div v-else>
-    <!-- Página de acerca de nosotros -->
-    <!-- Página de reseñas -->
-    <!-- Página de explorar -->
+    <!-- Navbar -->
     <nav>
       <h2>MyBooksApp</h2>
       <div>
