@@ -17,6 +17,8 @@ const emits = defineEmits(["changePage", "hideLogin"]);
 <style scoped>
 /* Navbar */
 nav {
+  position: relative;
+  z-index: 10;
   display: flex;
   padding: 10px 20px;
   align-items: center;

@@ -24,8 +24,14 @@ function changePage(page) {
     <NavBar @change-page="changePage" @hide-login="isLoginShown = true" />
     <!-- Páginas -->
     <!-- Acerca de nosotros -->
-    <section class="about-us-container" v-if="pageShown === 'about-us'">
-      <img src="@/assets/images/books.jpg" alt="" />
+
+    <section v-if="pageShown === 'about-us'" class="about-us-container">
+      <div>
+        <img
+          src="https://www.readpoetry.com/wp-content/uploads/2019/08/gregory-culmer-e8ThqioFqgs-unsplash-e1595292607482.jpg"
+          alt="Acerca de nosotros"
+        />
+      </div>
       <h2>Acerca de nosotros</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus,
@@ -60,10 +66,9 @@ function changePage(page) {
 </template>
 
 <style scoped>
-/* Acerca de nosotros */
 .about-us-container {
   margin: auto;
-  max-width: 700px;
+  max-width: 900px;
 }
 
 .about-us-container > h2 {
@@ -71,7 +76,15 @@ function changePage(page) {
   font-weight: 600;
 }
 
-.about-us-container > img {
+.about-us-container > div {
+  margin-bottom: 20px;
+}
+
+.about-us-container > div > img {
+  display: block;
+  background-color: aliceblue;
+  padding-inline: 100px;
+  margin: auto;
   width: 100%;
 }
 </style>
