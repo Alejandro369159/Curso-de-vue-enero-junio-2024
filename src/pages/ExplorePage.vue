@@ -1,8 +1,10 @@
 <script setup>
 import BookCard from "@/components/BookCard.vue";
+import BookDetail from "@/components/BookDetail.vue";
 import { ref, onMounted } from "vue";
 
 const books = ref([]);
+const selectedBookId = ref();
 
 async function getBooks() {
   // Lógica de traerme los libros de la API
@@ -16,13 +18,24 @@ onMounted(getBooks);
 </script>
 
 <template>
-  <section>
+  <!-- Lista de Libros -->
+  <section v-if="!selectedBookId">
     <h2>Explorar Libros</h2>
     <div>
       <!-- Una sola instancia de un libro -->
-      <BookCard v-for="_book in books" :book="_book" />
+      <BookCard
+        @click="selectedBookId = _book.id"
+        v-for="_book in books"
+        :book="_book"
+      />
     </div>
   </section>
+  <!-- Detalle de un libro -->
+  <BookDetail
+    :selected-book-id="selectedBookId"
+    @hide-detail="selectedBookId = undefined"
+    v-else
+  />
 </template>
 
 <style scoped>
