@@ -35,19 +35,4 @@ section {
 h2 {
   text-align: center;
 }
-
-.book-card {
-  margin: 20px auto;
-  width: 80%;
-  display: flex;
-  background-color: rgb(184, 184, 184);
-}
-
-.book-card > img {
-  width: 30%;
-}
-
-.book-card > div {
-  width: 70%;
-}
 </style>
