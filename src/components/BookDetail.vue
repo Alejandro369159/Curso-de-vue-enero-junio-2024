@@ -21,44 +21,46 @@ onMounted(getBook);
 
 <template>
   <section>
-    <button @click="emits('hideDetail')" type="button">Atrás</button>
+    <button @click="emits('hideDetail')" type="button" class="go-back-btn">
+      Atrás
+    </button>
     <h2>Detalle del Libro</h2>
     <div class="detail-container">
       <img :src="book?.image" alt="" />
       <div>
-        <p>
-          <span>Titulo: {{ book?.title }}</span
-          >este es un titulo
-        </p>
-        <p>
-          <span>Subtitulo: {{ book?.subtitle }} </span>
-        </p>
-        <p>
-          <span>Autores: {{ book?.authors }}</span>
-        </p>
-        <p>
-          <span>Páginas: {{ book?.pages }}</span>
-        </p>
-        <p>
-          <span>Año de publicación: {{ book?.year }}</span>
-        </p>
-        <p>
-          <span>Editorial: {{ book?.publisher }}</span>
-        </p>
-        <a :href="book?.download" type="button">Descargar</a>
+        <p><span>Titulo: </span> {{ book?.title }}</p>
+        <p><span>Subtitulo: </span> {{ book?.subtitle }}</p>
+        <p><span>Autores: </span> {{ book?.authors }}</p>
+        <p><span>Páginas: </span> {{ book?.pages }}</p>
+        <p><span>Año de publicación: </span> {{ book?.year }}</p>
+        <p><span>Editorial: </span> {{ book?.publisher }}</p>
+        <a :href="book?.download" type="button"
+          ><button type="button">Descargar</button></a
+        >
         <button type="button">Crear Reseña</button>
       </div>
     </div>
-    <div>
-      <p><span>Descripción: </span> {{ book?.description }}</p>
+    <div class="description-container">
+      <span>Descripción: </span>
+      <p>{{ book?.description }}</p>
     </div>
   </section>
 </template>
 
 <style scoped>
+/* component container */
 section {
-  max-width: 600px;
+  max-width: 700px !important;
 }
+/* go back button */
+.go-back-btn {
+  border: 0;
+  width: 100px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* detail  */
 h2 {
   text-align: center;
   font-weight: 600;
@@ -68,12 +70,66 @@ h2 {
   display: flex;
 }
 img {
-  width: 50%;
+  width: 30%;
+  padding: 5px;
+  border-radius: 30px;
+  object-fit: contain;
 }
 .detail-container > div {
-  width: 50%;
+  width: 70%;
+  padding: 25px;
 }
 span {
   font-weight: 600;
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+div > button {
+  cursor: pointer;
+  display: block;
+  margin-bottom: 5px;
+  border: 0;
+  width: 250px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+div > a > button {
+  cursor: pointer;
+  display: block;
+  margin-bottom: 5px;
+  border: 0;
+  width: 250px;
+  padding: 8px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+div > a:first-of-type > button {
+  margin-top: 15px;
+  background-color: rgb(69, 146, 247);
+  color: white;
+}
+
+div > button:last-of-type {
+  background-color: rgb(255, 179, 65);
+  color: white;
+}
+/* Description */
+.description-container {
+  margin-top: 20px;
+}
+.description-container > span {
+  padding-left: 10px;
+}
+.description-container > p {
+  margin-top: 5px;
+  background-color: rgb(242, 242, 242);
+  padding: 10px;
+  border-radius: 15px;
 }
 </style>
